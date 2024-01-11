@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>பசியாறு Restaurant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style1.css" />
+</head>
+
+<body>
+<nav class="navbar">
+        <div class="navbar-container container">
+            <input type="checkbox" name="" id="">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#starters">Starters</a></li>
+                <li><a href="main-course.html">Main Course</a></li>
+                <li><a href="desserts.html">Desserts</a></li>
+            </ul>
+            <h1 class="logo">பசியாறு</h1>
+        </div>
+    </nav>
+    <section class="showcase-area" id="showcase">
+        <div class="showcase-container">
+            <h1 class="main-title" id="home"><big>நம்பி வாங்க</big></h1>
+            <p style="color:white;"><big>Sandhoshama Ponga!!</big></p>
+         <div class="openBtn">
+		<button class="open-button"  onclick="openForm()">ORDER</button>
+            </div>
+<div class="form-popup" id="myForm">
+<div class="loginPopup">
+      <div class="formPopup" id="popupForm">
+  <form action="p2.php" class="formContainer" method="POST">
+    <h2>Order Here!!</h2>
+    <label for="name">NAME</label>
+    <input type="tel" name="name" id="name">
+    
+    <label for="pno">PNO</label>
+    <input type="tel" name="pno" id="pno">
+    
+    <label for="dish">DISH</label>
+    <select name="starters" id="starters">
+      <option value="Naatu Kozhi Soup">Naatu Kozhi Soup </option>
+      <option value="Aatu Kaal Soup">Aatu Kaal Soup </option>
+	  <option value="Mutton Kola Urundai">Mutton Kola Urundai</option>
+	  <option value="Chicken 65">Chicken 65</option>
+	  <option value="Lemon Pepper Fish">Lemon Pepper Fish </option>
+	
+    </select>
+    
+    <label for="quantity">QUANTITY</label>
+    <input type="number" name="quantity" id="quantity">
+    
+    <label for="address">ADDRESS</label>
+    <input type="tel" name="address" id="address">
+    
+    <button class="btn" onclick="myFunction(event)">Submit</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("popupForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("popupForm").style.display = "none";
+}
+
+function myFunction(event) {
+  event.preventDefault(); 
+
+
+  const form = document.querySelector('.formContainer');
+  const formData = new FormData(form);
+
+ 
+  fetch('p2.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('Ordered Successfully!');
+      closeForm();
+    } else {
+      throw new Error('Failed to submit form');
+    }
+  })
+  .catch(error => alert(error));
+}
+</script>
+
+          </div> 
+    </section>
+    <section id=starters>
+	<h2 class="food-menu-heading">Starters</h2>
+       <div class="food-menu-container container">
+            <div class="food-menu-item">
+                <div class="food-img">
+                    <img src="https://www.yummytummyaarthi.com/wp-content/uploads/2014/07/1.jpg" alt="" />
+                </div>
+                <div class="food-description">
+                    <h1 class="food-titile"><big>நாட்டுக்கோழி சூப்</big></h1>
+					<h2 class="food-titile">Naatu Kozhi Soup</h2>
+					
+                    <p>
+                        Signature recipe of ours would taste the best the day following.
+                    </p>
+                    <p class="food-price">Price: &#8377; 85</p>
+				
+                </div>
+				
+				<div class="food-menu-item">
+                <div class="food-img">
+                    <img src="https://www.awesomecuisine.com/wp-content/uploads/2020/01/aatu-kaal-soup.jpg" alt="" />
+                </div>
+                <div class="food-description">
+                    <h1 class="food-titile"><big>ஆட்டுக்கால் சூப்</big></h1>
+					<h2 class="food-titile">Aatu Kaal Soup</h2>
+                    <p>
+                        Signature recipe of ours would taste the best the day following.
+                    </p>
+                    <p class="food-price">Price: &#8377; 85</p>
+
+                </div>
+				
+				<div class="food-menu-item">
+                <div class="food-img">
+                    <img src="https://gingerskillet.com/wp-content/uploads/2021/06/Kolaurundaimutton_F.jpg" alt="" />
+                </div>
+                <div class="food-description">
+                    <h1 class="food-titile"><big>மட்டன் கோலா உருண்டை</big></h1>
+					<h2 class="food-titile">Mutton Kola Urundai</h2>
+                    <p>
+                        Signature recipe of ours would taste the best the day following.
+                    </p>
+                    <p class="food-price">Price: &#8377; 80</p>
+                </div>
+				
+				<div class="food-menu-item">
+                <div class="food-img">
+                    <img src="https://masalaandchai.com/wp-content/uploads/2021/10/Restaurant-Style-Chicken-65-500x375.jpg" alt="" />
+                </div>
+                <div class="food-description">
+                    <h1 class="food-titile"><big>சிக்கன் 65</big></h1>
+					<h2 class="food-titile">Chicken 65</h2>
+                    <p>
+                        Signature recipe of ours would taste the best the day following.
+                    </p>
+                    <p class="food-price">Price: &#8377; 60</p>
+                </div>
+				
+				<div class="food-menu-item">
+                <div class="food-img">
+                    <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2022/04/lemon-pepper-fish-recipe.jpg" alt="" />
+                </div>
+                <div class="food-description">
+                    <h1 class="food-titile"><big>மிளகு எலுமிச்சை மீன் வறுவல்</big></h1>
+					<h2 class="food-titile">Lemon Pepper Fish</h2>
+                    <p>
+                        Signature recipe of ours would taste the best the day following.
+                    </p>
+                    <p class="food-price">Price: &#8377; 120</p>
+                </div>
+            </div>
+    </section>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

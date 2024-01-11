@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>பசியாறு Restaurant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style1.css" />
+</head>
+<body>
+<nav class="navbar">
+        <div class="navbar-container container">
+            <input type="checkbox" name="" id="">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="starters.html">Starters</a></li>
+                <li><a href="main-course.html">Main Course</a></li>
+                <li><a href="#desserts">Desserts</a></li>
+            </ul>
+            <h1 class="logo">பசியாறு</h1>
+        </div>
+    </nav>
+    <section class="showcase-area" id="showcase">
+        <div class="showcase-container">
+            <h1 class="main-title" id="home"><big>நம்பி வாங்க</big></h1>
+            <p style="color:white;"><big>Sandhoshama Ponga!!</big></p>
+				<div class="openBtn">
+		<button class="open-button"  onclick="openForm()">ORDER</button>
+            </div>
+<div class="form-popup" id="myForm">
+<div class="loginPopup">
+      <div class="formPopup" id="popupForm">
+  <form action="p3.php" class="formContainer" method="POST">
+    <h2>Order Here!!</h2>
+    <label for="name">NAME</label>
+    <input type="tel" name="name" id="name">
+    
+    <label for="pno">PNO</label>
+    <input type="tel" name="pno" id="pno">
+    
+    <label for="dish">DISH</label>
+    <select name="desserts" id="desserts">
+      <option value="Unniyappam">Unniyappam</option>
+      <option value="Ada Pradhaman">Ada Pradhaman </option>
+	  <option value="Tender Coconut Payasam">Tender Coconut Payasam </option>
+	  <option value="Elai Kolukattai">Elai Kolukattai</option>
+	  <option value="Mundhiri Kothu">Mundhiri Kothu</option>
+	
+    </select>
+    
+    <label for="quantity">QUANTITY</label>
+    <input type="number" name="quantity" id="quantity">
+    
+    <label for="address">ADDRESS</label>
+    <input type="tel" name="address" id="address">
+    
+    <button class="btn" onclick="myFunction(event)">Submit</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("popupForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("popupForm").style.display = "none";
+}
+
+function myFunction(event) {
+  event.preventDefault(); 
+
+
+  const form = document.querySelector('.formContainer');
+  const formData = new FormData(form);
+
+ 
+  fetch('p3.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('Ordered Successfully!');
+      closeForm();
+    } else {
+      throw new Error('Failed to submit form');
+    }
+  })
+  .catch(error => alert(error));
+}
+</script>
+
+          </div> 
+    </section>
+	<section id=desserts>
+	<h2 class="food-menu-heading">Desserts</h2>
+       <div class="food-menu-container container">
+            <div class="food-menu-item">
+                <div class="food-img">
+                    <img src="https://mariasmenu.com/wp-content/uploads/Unniyappam-Recipe.jpg" alt="" />
+                </div>
+                <div class="food-description">
+                    <h1 class="food-titile"><big>உன்னியப்பம்</big></h1>
+					<h2 class="food-titile">Unniyappam</h2>
+                    <p>
+                        Signature recipe of ours would taste the best the day following.
+                    </p>
+                    <p class="food-price">Price: &#8377; 350</p>
+					
+                </div>
+            </div>
+
+            <div class="food-menu-item">
+                <div class="food-img">
+                    <img src="https://asmallbite.com/wp-content/uploads/2016/09/Ada-Pradhaman-Onam-Recipes1.jpg" alt="error" />
+                </div>
+                <div class="food-description">
+                    <h1 class="food-titile"><big>அட பிரதமன்</big></h1>
+					<h2 class="food-titile">Ada Pradhaman</h2>
+                    <p>
+                        A bowl of Comfort Food.
+                    </p>
+                    <p class="food-price">Price: &#8377; 270</p>
+				
+                </div>
+            </div>
+			
+            <div class="food-menu-item">
+                <div class="food-img">
+                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/1c/ac/1e/2e/elaneer-payasam.jpg" alt="error"/>
+					</div>
+                <div class="food-description">
+                    <h1 class="food-titile"><big>இளநீர் பாயாசம்</big> </h1>
+					<h2 class="food-titile">Tender Coconut Payasam</h2>
+                    <p>
+                       A delight you would cherish .
+					   Our fireless recipe.
+                    </p>
+                    <p class="food-price">Price: &#8377; 310</p>
+					
+                </div>
+            </div>
+            <div class="food-menu-item">
+                <div class="food-img">
+                    <img src="https://c2.staticflickr.com/2/1528/24352090811_21dededaf0_b.jpg" alt="error"/>
+					</div>
+                <div class="food-description">
+                    <h1 class="food-titile"><big>இலை கொழுக்கட்டை</big></h1>
+					<h2 class="food-titile">Elai Kolukattai</h2>
+                    
+                    <p>
+                       I mean , who doesn't love Kerala delights.
+                    </p>
+                    <p class="food-price">Price: &#8377; 320</p>
+					
+                </div>
+            </div>
+            <div class="food-menu-item">
+                <div class="food-img">
+                    <img src="https://2.bp.blogspot.com/-lE9wT_dNwEs/WCuc6S9my1I/AAAAAAAAASo/_k2E-dx-1jYKIiE0gRIOqivpW4qHraoswCLcB/s1600/Munthiri%2BKothu%2BRecipe.JPG" alt="error" />
+                </div>
+                <div class="food-description">
+                    <h1 class="food-titile"><big>முந்திரிகொத்து</big></h1>
+					<h2 class="food-titile">Mundhiri Kothu</h2>
+                    <p>
+                        Nothing but an Emotion.
+                    </p>
+                    <p class="food-price">Price: &#8377; 50</p>
+					
+                </div>
+            </div>
+            
+        </div>
+    </section>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
